@@ -4,13 +4,11 @@ Appendix A.5-A.6).
 
 NOTE ON THIS RELEASE: the adaptive-masking internals (Shapley-kernel regression
 and the closed-form masking-probability update) are withheld from this
-anonymous review bundle and will be released upon paper acceptance. This
+version and will be released upon paper acceptance. This
 module still implements plain per-span uniform Bernoulli masking (Sec. 2.1,
 Eq. 1) in full, and ``AdaptiveMaskingStore`` defaults to a non-adaptive
 no-op mode so the rest of the codebase (masked-average teacher, anchor
-teacher, selective weighting, Sec. 2.1-2.2) runs end to end without it. This
-reproduces the paper's disclosed "Weighting only" ablation row (Table 3),
-not the "Full MASS" row, which additionally requires the withheld component.
+teacher, selective weighting, Sec. 2.1-2.2) runs end to end without it. 
 
 Kept as a standalone module (no dependency on the trainer or data collator)
 so it can be unit tested in isolation and imported from both.
