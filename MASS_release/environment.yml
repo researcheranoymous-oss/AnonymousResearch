@@ -1,0 +1,33 @@
+name: mass
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - torch==2.8.0
+    - accelerate==1.11.0
+    # transformers==4.57.1 predates OLMo 3 (arXiv:2512.13961) support. Pinned to a lower
+    # bound here for the OLMo3-7B scripts; if no released version on PyPI has OLMo 3
+    # AutoModelForCausalLM/tokenizer support yet, install from a specific git commit instead,
+    # e.g.: pip install "git+https://github.com/huggingface/transformers.git@<commit>"
+    - transformers>=4.57.1
+    - trl==0.26.0
+    - datasets==3.6.0
+    - deepspeed==0.18.2
+    - peft==0.17.1
+    - bitsandbytes==0.48.2
+    - wandb==0.22.3
+    # Same OLMo 3 caveat as transformers above — bump/pin to a specific commit once a
+    # released vLLM version with OLMo 3 support is confirmed.
+    - vllm>=0.11.0
+    - xformers==0.0.32.post1
+    - triton==3.4.0
+    - einops==0.8.1
+    - safetensors==0.5.3
+    - sentencepiece==0.1.99
+    - tiktoken==0.9.0
+    - math-verify==0.8.0
